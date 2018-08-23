@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Page ~hide~</title>
+    <style>
+        #ti {
+            text-align: center;
+            color: #ff0000;
+            font-size: 32px;
+            width: 100%;
+        }
+        #main-text {
+            width: 70%;
+            margin: auto;
+            float: left;
+        }
+        #sub_part {
+            width: 28%;
+            left: 5%;
+            float: right;
+        }
+        .detail {
+            width: 95%;
+            text-align: left;
+            margin-top: 3px;
+            margin-bottom: 50px;
+        }
+        .detail h1 h2 {
+            color: #1260ff;
+            text-align: center;
+        }
+        .atc {
+            border: 3px solid #4bc8ff;
+            /*outline: 3px solid #308881;*/
+            margin-bottom: 10px;
+            padding: 0px 5px;
+        }
+        footer {
+            text-align: center;
+            text-decoration-line: none;
+            font-size: 0.8em;
+            margin-top: 120px;
+            width: 100%;
+            float: left;
+        }
+    </style>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/csshake.css' %}">
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+
+<body>
+    <header id="ti" class="shake shake-hard">
+        <h1 title="WHERE ARE YOU FROM?"><b> HIDE PAGE </b></h1>
+        <p style="width: 100%;text-align: left">
+        <a href="/" style="text-align: left;font-size: 0.5em;left: 20%;text-decoration-line: none">
+            <span> &lt;&lt;&lt; RUN OUT!!! </span>
+        </a></p>
+        <p style="height: 25px;margin: 25px"></p>
+    </header>
+
+
+    <div id="main-text" align="center">
+        <!--  -->
+        <div id="about" class="detail">
+            <h2>关于</h2>
+
+            {% block about %}
+            {% endblock %}
+        </div>
+        <!--  -->
+
+
+        <div id="pin-msg" class="detail">
+            <h2>置顶消息</h2>
+
+            {% block pin_msg %}
+            {% endblock %}
+        </div>
+
+        <div id="all-smg" class="detail">
+            <h2>消息</h2>
+
+            {% block all_msg %}
+            {% endblock %}
+        </div>
+        <!--  -->
+
+
+    </div>
+
+
+    <div id="sub_part">
+        {% block sub_part %}
+            <div>
+            <p>This is a sub part.</p>
+            </div>
+        {% endblock %}
+    </div>
+
+    <footer>
+        <p>
+            Made By <a href="https://github.com/hugefiver"><i>Hugefiver</i></a> <br/>
+            Power By Nginx, Django
+        </p>
+    </footer>
+</body>
+</html>

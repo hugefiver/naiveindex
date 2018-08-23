@@ -1,0 +1,84 @@
+{%  extends 'hidepage_base.html' %}
+
+{% block about %}
+<div class="atc detail"><article>
+                <h3>那些关于'naiveindex.site'</h3>
+                <p>2018/07/28</p>
+                <p>本站由 <i>Hugefiver</i> 随手写成，起初意为为相识的同学的博客提供导航。<wbr/>
+                    今后可能会添加一些新功能，例如本页用于发布一些简单的信息。可能还会有短链接服务，敬请期待。</p>
+                <p>目前本站只用于长理校友服务。如有校友有兴趣或与希望本站交换友链，可以进我们的
+                <a href="https://t.me/csuster" target="_blank">tg水群</a>交流。 </p>
+
+                <p><b>另外这里再提供一些相关网站：</b></p>
+                <ul>
+                    <li><a target="_blank" href="https://csu.st">CSU.ST - 一位大佬建的非官方长理论坛</a> </li>
+                </ul>
+            </article></div>
+{% endblock %}
+
+{% block pin_msg %}
+    {% for msgs in pin_msg_list%}
+        <div class="atc detail"><article>
+            {% if msgs.title %}
+                <h3>{{ msgs.title }}</h3>
+            {% endif %}
+
+            {% if msgs.create_date %}
+                <p>
+                    {{ msgs.create_date }}
+                {% ifnotequal msgs.change_date msgs.create_date %}
+                    最后修改: {{ msgs.change_date }}
+                {% endifnotequal %}
+                </p>
+            {% endif %}
+
+            {{ msgs.main_text | safe }}
+        </article></div>
+    {% endfor %}
+{% endblock %}
+
+{% block all_msg %}
+    {% for o in msg_list %}
+        <div class="atc detail"><article>
+            {% if o.title %}
+                <h3>{{ o.title }}</h3>
+            {% endif %}
+
+            {% if o.create_date %}
+                <p>
+                    {{ o.create_date }}
+                {% ifnotequal o.change_date o.create_date%}
+                    最后修改: {{ o.change_date }}
+                {% endifnotequal %}
+                </p>
+            {% endif %}
+
+            {{ o.main_text | safe }}
+        </article></div>
+    {% endfor %}
+{% endblock %}
+
+
+{% block sub_part %}
+    {% block music %}
+        {% load staticfiles %}
+        <link rel="stylesheet" href="{% static 'css/aplayer.css' %}">
+        <script src="{% static 'js/aplayer.js' %}"></script>
+        <script>
+            $(function(){
+                get_random_music();
+                $("#ch_music").click(get_random_music());
+            });
+            function get_random_music(){
+                $.get("{% url 'music:random_music' %}", function(d, s){
+                    $("#music").html(d);
+                })
+            }
+        </script>
+
+        <p id="ch_music"><b>听点歌吧</b></p>
+        <div id="music"></div>
+    {% endblock %}
+
+    {% include 'says.html' %}
+{% endblock %}

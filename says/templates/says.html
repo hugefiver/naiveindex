@@ -1,0 +1,69 @@
+<div>
+    <script>
+        $(document).ready(
+            function(){
+                $("#IWannaSay").hide();
+                get_new(1);
+                $("#IWannaSay_btn").click(
+                    function(){
+                        $("#IWannaSay_btn").hide("fast");
+                        $("#IWannaSay").show(500);
+                    }
+                );
+            }
+        );
+
+        function get_new(page) {
+            var get_url = "/api/says/page/" + page;
+            $.get(get_url, function(data, stat){
+                $("#they_say").html(data);
+            });
+        }
+
+        function send_say() {
+            /*if (! confirm("确定要发送？")) {
+                return false;
+            }*/
+            var form_data = {};
+            var l = $("#send_says").serializeArray();
+            $.each(l, function(){
+                form_data[this.name] = this.value;
+            });
+            $.post("{% url 'says:send' %}", form_data);
+            //$("input").value("");
+            $("textarea").val("");
+            $('#IWannaSay').hide(400);
+            $('#IWannaSay_btn').show();
+            get_new(1);
+        }
+    </script>
+
+    <h3>小小留言板</h3>
+
+    <button id="IWannaSay_btn" type="button">我也要留言！</button>
+
+    <div id="IWannaSay">
+        <form id="send_says">
+            <label>
+                Name: <input name="name" type="text" value="" placeholder="* 我们该怎么称呼您" max="12" min="2"> <br>
+                URL: &emsp;<input name="url" type="text" value="" placeholder="如果您有个人主页的话就填在这吧" size="25"> <br>
+                <input name="submit" type="button" value="发送～" onclick="send_say();">
+                <button onclick="$('#IWannaSay').hide(400);$('#IWannaSay_btn').show()" type="button">
+                    还是算了</button> <br>
+                Text: <span id="rest"></span><br>
+                <textarea name="say_text" wrap="soft" maxleght="200" cols="50" rows="30" aria-invalid="false"
+                         required placeholder="* 在200字以内说点什么吧"></textarea>
+                {% csrf_token %}
+            </label>
+        </form>
+    </div>
+
+    <div id="PeopleSay" style="text-decoration-line: none">
+        {% block people_say %}
+            <h4>我们的朋友说</h4>
+            <div id="they_say">
+
+            </div>
+        {% endblock %}
+    </div>
+</div>

@@ -1,0 +1,18 @@
+{% if music %}
+<div id="music_player" class="aplyer" style="width: 95%;margin: auto "></div>
+<script type="text/javascript">
+    var ap = new APlayer({
+        element: document.getElementById('music_player'),
+        narrow: false,
+        autoplay: true,
+        showlrc: false,
+        music: {
+            title: '{{ music.name }}',
+            author: '{{ music.author }}',
+            url: '{{ music.url }}',
+            pic: '{{ music.pic }}'
+        }
+    });
+    ap.init();
+</script>
+{% endif %}

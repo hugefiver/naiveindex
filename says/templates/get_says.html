@@ -1,0 +1,32 @@
+{% block people_say %}
+    {% if err %}
+        <p><strong>{{ err }}</strong></p>
+        <p>空洞的世界</p>
+    {% endif %}
+
+    {% if says_list %}
+        {% for l in says_list %}
+            <div style="padding-top: 3px;padding-bottom:22px;border-bottom: 1px #ff7e97 solid">
+                <p>
+                    <span><b>{{ l.name }}</b></span>
+                    {% ifnotequal l.url '' %}
+                        <span>的<a href="{{ l.url }}" target="_blank">主页</a></span>
+                    {% endifnotequal %}
+                </p>
+                <p>{{ l.time | date:"Y/m/d"}}</p>
+                <article>
+                    {{ l.text }}
+                </article>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <div style="text-align: center">
+        {% if says_pg.pre %}<a href="#" id="pre_pg" onclick="get_new({{ says_pg.pre }})">
+            上一页</a>{% endif %}
+        {% for pg in says_pg.before %}
+            <a href="#" class="pg_before" onclick="get_new({{ pg }})">{{ pg }}</a> <wbr>
+        {% endfor %}
+        <u>{{ says_pg.current }}</u>
+        {% if says_pg.next %}<a href="#" class="pg_next" onclick="get_new({{ says_pg.next }})">下一页</a>{% endif %}
+    </div>
+{% endblock %}
