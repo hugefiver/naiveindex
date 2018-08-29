@@ -3,7 +3,7 @@ from django.db import models
 
 class PeopleSays(models.Model):
     time = models.DateTimeField('发布时间', auto_now=True)
-    name = models.TextField('用户名', default='No name', max_length=12)
+    name = models.CharField('用户名', default='No name', max_length=12)
     text = models.TextField('留言', default='no text', max_length=220)
     url = models.URLField('URL', null=True, blank=True)
 
