@@ -7,6 +7,9 @@ class PeopleSays(models.Model):
     text = models.TextField('留言', default='no text', max_length=220)
     url = models.URLField('URL', null=True, blank=True)
 
+    def __str__(self):
+        return ' - '.join([id, name])
+    
     class Meta:
         ordering = ['-time']
 
