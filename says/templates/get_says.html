@@ -15,7 +15,7 @@
                 </p>
                 <p>{{ l.time | date:"Y/m/d"}}</p>
                 <article>
-                    {{ l.text }}
+                    {{ l.text|linebreaksbr }}
                 </article>
             </div>
         {% endfor %}
