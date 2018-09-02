@@ -10,6 +10,11 @@
                         $("#IWannaSay").show(500);
                     }
                 );
+                $("#poster").click(
+                    function(){
+                        get_new(1);
+                    }
+                )
             }
         );
 
@@ -38,7 +43,7 @@
         }
     </script>
 
-    <h3>小小留言板</h3>
+    <h3 id="poster">小小留言板</h3>
 
     <button id="IWannaSay_btn" type="button">我也要留言！</button>
 
