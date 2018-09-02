@@ -10,12 +10,12 @@
                 <p>
                     <span><b>{{ l.name }}</b></span>
                     {% ifnotequal l.url '' %}
-                        <span>的<a href="{{ l.url }}" target="_blank">主页</a></span>
+                        <span> 的<a href="{{ l.url }}" target="_blank">主页</a></span>
                     {% endifnotequal %}
                 </p>
                 <p>{{ l.time | date:"Y/m/d"}}</p>
                 <article>
-                    {{ l.text }}
+                    {{ l.text|linebreaksbr }}
                 </article>
             </div>
         {% endfor %}

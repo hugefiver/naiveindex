@@ -67,7 +67,7 @@
         <script>
             $(function(){
                 get_random_music();
-                $("#ch_music").click(get_random_music());
+                $("#ch_music").click(function(){get_random_music()});
             });
             function get_random_music(){
                 $.get("{% url 'music:random_music' %}", function(d, s){
