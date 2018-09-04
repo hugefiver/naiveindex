@@ -1,4 +1,0 @@
-Django >= 2.1.0
-Markdown 2.6.11
-Pygments >= 2.2.0
-markdown-newtab 0.2.0
