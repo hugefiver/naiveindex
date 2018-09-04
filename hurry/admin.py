@@ -6,13 +6,13 @@ from .models import Post, PinPost
 class PostAdmin(admin.ModelAdmin):
     list_display = ['title', 'create_date',
                     'change_date']
-    list_editable = ['title', 'create_date']
+    list_display_links = ['title', 'create_date']
 
 
 class PinPostAdmin(admin.ModelAdmin):
     list_display = ['title', 'create_date',
                     'pin', 'change_date']
-    list_editable = ['title', 'create_date']
+    list_display_links = ['title', 'create_date']
 
 
 admin.site.register(Post, PostAdmin)
