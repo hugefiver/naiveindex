@@ -8,7 +8,7 @@ class PeopleSays(models.Model):
     url = models.URLField('URL', null=True, blank=True)
 
     def __str__(self):
-        return ' - '.join([id, self.name])
+        return str(self.id) + ' - ' + self.name
     
     class Meta:
         ordering = ['-time']
