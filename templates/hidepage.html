@@ -1,7 +1,7 @@
 {%  extends 'hidepage_base.html' %}
 
 {% block about %}
-<div class="atc detail"><article>
+<div class="atc detail block"><article>
                 <h3>那些关于'naiveindex.site'</h3>
                 <p>2018/07/28</p>
                 <p>本站由 <i>Hugefiver</i> 随手写成，起初意为为相识的同学的博客提供导航。<wbr/>
@@ -18,7 +18,7 @@
 
 {% block pin_msg %}
     {% for msgs in pin_msg_list%}
-        <div class="atc detail"><article>
+        <div class="atc detail block"><article>
             {% if msgs.title %}
                 <h3>{{ msgs.title }}</h3>
             {% endif %}
@@ -39,7 +39,7 @@
 
 {% block all_msg %}
     {% for o in msg_list %}
-        <div class="atc detail"><article>
+        <div class="atc detail block"><article>
             {% if o.title %}
                 <h3>{{ o.title }}</h3>
             {% endif %}

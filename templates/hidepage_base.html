@@ -4,22 +4,46 @@
     <meta charset="UTF-8">
     <title>Page ~hide~</title>
     <style>
+        body {
+            background: whitesmoke;
+        }
         #ti {
             text-align: center;
             color: #ff0000;
             font-size: 32px;
             width: 100%;
         }
+        #ti p {
+            margin-bottom: 0;
+            margin-top: 0;
+        }
         #main-text {
             width: 70%;
+            height: 1200px;
+            overflow-y: scroll;
             margin: auto;
             float: left;
         }
+        #main-text::-webkit-scrollbar {
+            width: 7px;
+            background-color: #eeeeee;
+        }
+        #main-text::-webkit-scrollbar-thumb {
+            background-color: #fffffe;
+        }
         #sub_part {
             width: 28%;
-            left: 5%;
+            right: 10px;
             float: right;
+            display: block;
+            /*position: fixed;*/
         }
+        .block {
+            background-color: white;
+            opacity: 0.8;
+            box-shadow: 0 2px 5px 0 rgba(0,0,0,0.08), 0 2px 10px 0 rgba(0,0,0,0.04);
+        }
+
         .detail {
             width: 95%;
             text-align: left;
@@ -31,10 +55,15 @@
             text-align: center;
         }
         .atc {
-            border: 3px solid #4bc8ff;
+            /*border: 3px solid #4bc8ff;*/
             /*outline: 3px solid #308881;*/
             margin-bottom: 10px;
             padding: 0px 5px;
+            box-shadow: 0 2px 5px 3px rgba(0,0,0,0.08), 0 2px 10px 5px rgba(0,0,0,0.04);
+        }
+        .highlight {
+            background-color: #34E1E9;
+            opacity: 0.7;
         }
         footer {
             text-align: center;

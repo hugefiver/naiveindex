@@ -6,7 +6,7 @@
 
     {% if says_list %}
         {% for l in says_list %}
-            <div style="padding-top: 3px;padding-bottom:22px;border-bottom: 1px #ff7e97 solid">
+            <div class="block" style="padding-top: 3px;padding-bottom:10px;/*border-bottom: 1px #ff7e97 solid;*/margin-bottom: 10px">
                 <p>
                     <span><b>{{ l.name }}</b></span>
                     {% ifnotequal l.url '' %}
